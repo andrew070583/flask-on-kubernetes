@@ -9,10 +9,10 @@ Default region name [None]: <YOUR_AWS_REGION>
 Default output format [None]: json
 ``` 
 # Build and publish flask docker image to ECR
- go to directory API
- make scripts executable chmod +x
- 1 run build.sh script
- 2 run publish.sh script
+go to directory API
+make scripts executable chmod +x
+1 run build.sh script
+2 run publish.sh script
  
  # Terraform - Provision an EKS Cluster
 
