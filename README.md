@@ -119,19 +119,6 @@ You can view these outputs again by running:
 $ terraform output
 ```
 
-## Deploy and access Kubernetes Dashboard
 
-To verify that your cluster is configured correctly and running, you will install a Kubernetes dashboard and navigate to it in your local browser. 
-
-### Deploy Kubernetes Metrics Server
-
-The Kubernetes Metrics Server, used to gether metrics such as cluster CPU and memory usage
-over time, is not deployed by default in EKS clusters.
-
-Download and unzip the metrics server by running the following command.
-
-```shell
-$ wget -O v0.3.6.tar.gz https://codeload.github.com/kubernetes-sigs/metrics-server/tar.gz/v0.3.6 && tar -xzf v0.3.6.tar.gz
-```
 
 
