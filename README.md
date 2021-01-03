@@ -16,7 +16,7 @@ make scripts executable chmod +x
  
  # Terraform - Provision an EKS Cluster
 
-go to root directory of this repo
+go to root directory of this repo and perform command
 
 ```shell
 $ terraform init
