@@ -1,5 +1,5 @@
  # Before to start 
- Install AWS cli, terraform latest version, kubectl, aws-iam-authenticator
+ Install AWS cli, terraform, kubectl, aws-iam-authenticator, docker
  
 ```shell
 $ aws configure
@@ -14,9 +14,9 @@ Default output format [None]: json
  1 run build.sh script
  2 run publish.sh script
  
- Terraform - Provision an EKS Cluster
+ # Terraform - Provision an EKS Cluster
 
-This repo is a companion repo to the [Provision an EKS Cluster learn guide](https://learn.hashicorp.com/terraform/kubernetes/provision-eks-cluster), containing
+This repo is a companion repo to the , containing
 Terraform configuration files to provision an EKS cluster on AWS.
 
 After installing the AWS CLI. Configure it to use your credentials.
