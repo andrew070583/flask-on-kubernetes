@@ -106,4 +106,68 @@ $ terraform output
 ```
 git clone https://github.com/nginxinc/kubernetes-ingress.git
 ```
+2.    To choose the directory for deploying the Ingress Controller, run the following command:
+```
+cd kubernetes-ingress/deployments/
+```
+To create a dedicated namespace, service account, and TLS certificates (with a key) for the default server, run the following commands:
+```
+kubectl apply -f common/ns-and-sa.yaml
+kubectl apply -f common/default-server-secret.yaml
+```
+4.    To create a ConfigMap for customizing your NGINX configuration, run the following command:
+```
+kubectl apply -f common/nginx-config.yaml
+```
+5.    To configure role-based access control (RBAC), create a ClusterRole, and then bind the ClusterRole to the service account from step 3. For example:
+```
+kubectl apply -f rbac/rbac.yaml
+```
+6.    To deploy the Ingress Controller, run the following commands.
+```
+kubectl apply -f deployment/nginx-ingress.yaml
+kubectl get pods --namespace=nginx-ingress
+```
+You receive output similar to the following:
+```
+NAME                            READY   STATUS    RESTARTS   AGE
+nginx-ingress-fb4f4b44c-xmq6z   1/1     Running   0          3d7h
+```
+# Access the Ingress Controller and run your application
+1.  To apply your configuration, run the following commands:
+```
+kubectl apply -f service/loadbalancer-aws-elb.yaml
+```
+```
+kubectl get svc --namespace=nginx-ingress
+```
+You receive output similar to the following:
 
+```
+NAME          TYPE         EXTERNAL-IP                                      PORT(S)
+nginx-ingress LoadBalancer aaa71bxxxxx-11xxxxx10.us-east-1.elb.amazonaws.com 80:32462/TCP,443:32226/TCP
+```
+2.    To configure NGINX to use the PROXY protocol so that you can pass proxy information to the Ingress Controller, add the following keys to the nginx-config.yaml file from step 1. For example:
+```
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: nginx-config
+  namespace: nginx-ingress
+data:
+  proxy-protocol: "True"
+  real-ip-header: "proxy_protocol"
+  set-real-ip-from: "0.0.0.0/0"
+```
+3.    To update the ConfigMap, run the following command:
+```
+kubectl apply -f common/nginx-config.yaml
+```
+4. To apply flask deployment and service go to root directory of this repo and perform:
+```
+kubectl apply -f flask.yaml
+```
+5 Implement Ingress so that it interfaces with your services using a single load balancer provided by Ingress Controller. Use  micro-ingress.yaml
+```
+kubectl apply -f micro-ingress.yaml
+```
