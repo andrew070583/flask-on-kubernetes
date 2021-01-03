@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<head>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+
+        .h1 {
+            font-weight: normal;
+        }
+
+        input[type=submit] {
+            background-color: #8d66b0;
+            color: white;
+            border-radius: 4px;
+            border: 0;
+            padding: 5px 12px;
+        }
+
+        .result {
+            margin: 20px 0 40px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        Echo Server
+    </h1>
+    <input type="text" id="echo_input" />
+    <input type="submit" id="send_echo_button" value="Get echo" />
+    <div class="result">The echo is: <span id="echo_results"></span></div>
+
+    <input type="submit" id="get_ip_button" value="Get IP" />
+    <div class="result">
+        Your IP is: <span id="ip_result"></span>
+    </div>
+    <script>
+        const $send_echo_button = document.querySelector("#send_echo_button");
+        const $echo_input = document.querySelector("#echo_input");
+        const $echo_results = document.querySelector("#echo_results");
+        const $ip_result = document.querySelector("#ip_result");
+        const $get_ip_button = document.querySelector("#get_ip_button");
+
+        $send_echo_button.onclick = function () {
+            var val = $echo_input.value;
+            fetch('/echo?str=' + val).then(r => r.text()).then(r => {
+                $echo_results.innerHTML = r;
+            });
+        }
+        $get_ip_button.onclick = function () {
+            fetch('/get_ip?').then(r => r.text()).then(r => {
+                $ip_result.innerHTML = r;
+            });
+        }
+    </script>
+</body>
