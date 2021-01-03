@@ -1,4 +1,4 @@
- Before to start 
+ # Before to start 
  Install AWS cli, terraform latest version, kubectl, aws-iam-authenticator
  
 ```shell
