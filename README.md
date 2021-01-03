@@ -100,7 +100,10 @@ You can view these outputs again by running:
 ```shell
 $ terraform output
 ```
+# Deploy the NGINX Ingress Controller for Kubernetes
 
-
-
+1.    To download the NGINX Ingress Controller for Kubernetes, run the following command:
+```
+git clone https://github.com/nginxinc/kubernetes-ingress.git
+```
 
