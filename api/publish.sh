@@ -4,12 +4,12 @@
 # config
 ###########################################################
 source="hello-from-api"
-target="140539094451.dkr.ecr.us-west-2.amazonaws.com/ops/api"
+target="207086112514.dkr.ecr.us-east-1.amazonaws.com/app"
 version="latest"
 
 ###########################################################
 # main
 ###########################################################
-eval $(aws ecr get-login --no-include-email --region us-west-2)
+eval $(aws ecr get-login --no-include-email --region us-east-1)
 docker tag $source:$version $target:$version
 docker push $target:$version
