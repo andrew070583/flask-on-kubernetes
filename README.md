@@ -167,7 +167,7 @@ kubectl apply -f common/nginx-config.yaml
 ```
 kubectl apply -f flask.yaml
 ```
-5 Implement Ingress so that it interfaces with your services using a single load balancer provided by Ingress Controller. Use  micro-ingress.yaml
+5 Implement Ingress so that it interfaces with your services using a single load balancer provided by Ingress Controller. Use  micro-ingress.yaml file
 ```
 kubectl apply -f micro-ingress.yaml
 ```
