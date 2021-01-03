@@ -1,3 +1,19 @@
+ Before to start 
+ Install AWS cli, terraform latest version, kubectl, aws-iam-authenticator
+ 
+```shell
+$ aws configure
+AWS Access Key ID [None]: <YOUR_AWS_ACCESS_KEY_ID>
+AWS Secret Access Key [None]: <YOUR_AWS_SECRET_ACCESS_KEY>
+Default region name [None]: <YOUR_AWS_REGION>
+Default output format [None]: json
+``` 
+Build and publish flask docker image to ECR
+ go to directory API
+ make scripts executable chmod +x
+ 1 run build.sh script
+ 2 run publish.sh script
+ 
  Terraform - Provision an EKS Cluster
 
 This repo is a companion repo to the [Provision an EKS Cluster learn guide](https://learn.hashicorp.com/terraform/kubernetes/provision-eks-cluster), containing
@@ -5,13 +21,8 @@ Terraform configuration files to provision an EKS cluster on AWS.
 
 After installing the AWS CLI. Configure it to use your credentials.
 
-```shell
-$ aws configure
-AWS Access Key ID [None]: <YOUR_AWS_ACCESS_KEY_ID>
-AWS Secret Access Key [None]: <YOUR_AWS_SECRET_ACCESS_KEY>
-Default region name [None]: <YOUR_AWS_REGION>
-Default output format [None]: json
-```
+
+
 
 This enables Terraform access to the configuration file and performs operations on your behalf with these security credentials.
 
