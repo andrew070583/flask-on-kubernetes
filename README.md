@@ -8,7 +8,7 @@ AWS Secret Access Key [None]: <YOUR_AWS_SECRET_ACCESS_KEY>
 Default region name [None]: <YOUR_AWS_REGION>
 Default output format [None]: json
 ``` 
-Build and publish flask docker image to ECR
+# Build and publish flask docker image to ECR
  go to directory API
  make scripts executable chmod +x
  1 run build.sh script
